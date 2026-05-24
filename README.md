@@ -1,6 +1,6 @@
 # Real-Time Fraud Detection System with Explainable AI
 
-Advanced machine learning and Explainable AI project built using the IEEE-CIS Fraud Detection dataset.
+Machine learning and Explainable AI project built using the IEEE-CIS Fraud Detection dataset.
 
 ---
 
