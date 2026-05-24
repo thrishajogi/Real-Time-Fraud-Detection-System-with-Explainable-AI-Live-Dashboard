@@ -1,87 +1,54 @@
-# Real-Time Credit Card Fraud Detection System with Explainable AI
+# Real-Time Fraud Detection System with Explainable AI
 
 Advanced machine learning and Explainable AI project built using the IEEE-CIS Fraud Detection dataset.
 
-This project implements an end-to-end fraud detection pipeline capable of identifying suspicious credit card transactions using machine learning models and Explainable AI techniques.
+---
 
-The system combines:
-- LightGBM
-- XGBoost
-- Isolation Forest
-- SHAP Explainability
-- Streamlit Dashboard
+## Project Overview
 
-to build an interactive fraud analysis and monitoring platform.
+An end-to-end fraud detection pipeline combining:
+
+- LightGBM / XGBoost / Isolation Forest for classification
+- SMOTE for class imbalance handling
+- SHAP for Explainable AI (global + per-transaction)
+- Streamlit multi-page live dashboard
 
 ---
 
-# Project Highlights
+## Dataset
 
-- End-to-end fraud detection workflow
-- Handles highly imbalanced fraud data using SMOTE
-- Feature engineering for transaction risk analysis
-- Multi-model comparison and evaluation
-- Explainable AI using SHAP
-- Interactive Streamlit dashboard
-- Real-time fraud probability scoring
-- Transaction-level explainability
-- Risk segmentation system
+### Credit Card Fraud Detection — IEEE-CIS
 
----
-
-# Dataset
-
-## Credit Card Fraud Detection — IEEE-CIS
-
-Download the dataset from Kaggle:
-
+Download from Kaggle:  
 https://www.kaggle.com/c/ieee-fraud-detection/data
 
 ### Steps to Download
 
-1. Create or log in to your free Kaggle account:
+Create or log in to your free Kaggle account at:  
 https://www.kaggle.com
 
-2. Search for:
-IEEE-CIS Fraud Detection
+Search for:  
+`IEEE-CIS Fraud Detection`
 
-3. Download the following files:
+Download:
+
 - `train_transaction.csv`
 - `train_identity.csv`
 
-4. Place both files inside:
+Place both files inside the `data/` folder.
 
-```text
-FraudDetection/data/
-```
-
-5. The project automatically merges both datasets using:
+The project automatically merges both datasets using:
 `TransactionID`
 
 ---
 
-# Tech Stack
-
-| Category | Technologies |
-|---|---|
-| Programming Language | Python |
-| Machine Learning | LightGBM, XGBoost, Isolation Forest |
-| Data Processing | Pandas, NumPy, Scikit-learn |
-| Explainable AI | SHAP |
-| Visualization | Matplotlib, Plotly |
-| Dashboard | Streamlit |
-| Imbalance Handling | SMOTE |
-
----
-
-# Project Structure
+## Folder Structure
 
 ```text
 FraudDetection/
-│
 ├── analysis.ipynb
-├── README.md
 ├── requirements.txt
+├── README.md
 │
 ├── data/
 │   ├── train_transaction.csv
@@ -100,52 +67,41 @@ FraudDetection/
     ├── shap_bar.png
     ├── shap_beeswarm.png
     ├── shap_dependence.png
-    ├── shap_waterfall_fraud.png
+    ├── fraud_by_hour.png
     └── ...
 ```
 
 ---
 
-# Installation
+## Quickstart
 
-Clone the repository:
-
-```bash
-git clone <your-repository-link>
-cd FraudDetection
-```
-
-Install required dependencies:
+### 1. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-# Running the Project
-
-## Run the Jupyter Notebook
+### 2. Run the Jupyter Notebook
 
 ```bash
 jupyter notebook analysis.ipynb
 ```
 
-Run all notebook cells sequentially.
+Run all notebook cells in order.
 
 The notebook performs:
-- Data cleaning
+
+- Dataset merging
+- Exploratory Data Analysis
 - Missing value handling
 - Feature engineering
-- Class balancing using SMOTE
+- SMOTE balancing
 - Model training and evaluation
-- Threshold optimization
 - SHAP explainability
 - Visualization generation
+- Risk segmentation
 
----
-
-## Launch the Streamlit Dashboard
+### 3. Launch the Streamlit Dashboard
 
 ```bash
 streamlit run dashboard/app.py
@@ -153,35 +109,26 @@ streamlit run dashboard/app.py
 
 ---
 
-# Dashboard Features
+## Dashboard Features
 
-## Overview Page
-- KPI metrics
-- Fraud trends
-- Risk tier distribution
-- Fraud-by-hour analysis
-
-## Transaction Explorer
-- Search transactions by TransactionID
-- Filter by fraud probability
-- Interactive fraud analysis
-
-## SHAP Explainer
-- Transaction-level explainability
-- SHAP waterfall visualizations
-- Plain-English fraud reasoning
+| Page | Description |
+|------|-------------|
+| Overview | KPI cards, fraud trends, and risk distributions |
+| Transaction Explorer | Search and filter transactions with fraud probabilities |
+| SHAP Explainer | Transaction-level explainability using SHAP |
 
 ---
 
-# Model Performance
+## Model Performance
 
 | Model | Performance |
-|---|---|
+|-------|-------------|
 | LightGBM | Best overall performance |
-| XGBoost | Strong competitive results |
-| Isolation Forest | Lower performance compared to supervised models |
+| XGBoost | Competitive performance |
+| Isolation Forest | Lower performance |
 
 Evaluation metrics used:
+
 - ROC-AUC
 - PR-AUC
 - Precision
@@ -190,40 +137,41 @@ Evaluation metrics used:
 
 ---
 
-# Key Insights
+## Key Findings
 
-- Large abnormal transactions are strong fraud indicators
-- Late-night transactions show elevated fraud probability
-- Mobile-device transactions exhibit higher fraud risk
-- PR-AUC is more meaningful than accuracy for imbalanced fraud datasets
-- Threshold optimization significantly improves business impact
-
----
-
-# Explainable AI
-
-SHAP was used to provide:
-- Global feature importance
-- Beeswarm plots
-- Dependence plots
-- Waterfall explanations
-- Transaction-level reasoning
-
-This improves model transparency and interpretability for fraud analysts.
+- AmtToMeanRatio was the strongest fraud indicator
+- Late-night transactions showed significantly higher fraud rates
+- Mobile-device transactions exhibited elevated fraud probability
+- PR-AUC was more reliable than accuracy for this imbalanced dataset
+- Threshold optimization improved fraud detection efficiency
 
 ---
 
-# Future Improvements
+## Tech Stack
+
+| Category | Technologies |
+|---|---|
+| Programming Language | Python |
+| Machine Learning | LightGBM, XGBoost, Isolation Forest |
+| Data Processing | Pandas, NumPy, Scikit-learn |
+| Explainable AI | SHAP |
+| Visualization | Matplotlib, Plotly |
+| Dashboard | Streamlit |
+| Imbalance Handling | SMOTE |
+
+---
+
+## Future Improvements
 
 - Real-time API deployment
 - Kafka streaming integration
-- User authentication
 - Cloud deployment
 - Deep learning-based fraud detection
-- Real-time transaction ingestion
+- Live transaction ingestion
 
+---
 
-# Acknowledgements
+## Acknowledgements
 
 - IEEE-CIS Fraud Detection Dataset
 - Kaggle
