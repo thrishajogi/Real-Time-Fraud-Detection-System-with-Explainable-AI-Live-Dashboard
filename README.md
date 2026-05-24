@@ -222,13 +222,6 @@ This improves model transparency and interpretability for fraud analysts.
 - Deep learning-based fraud detection
 - Real-time transaction ingestion
 
----
-
-# Author
-
-**Thrisha R.S**  
-
----
 
 # Acknowledgements
 
